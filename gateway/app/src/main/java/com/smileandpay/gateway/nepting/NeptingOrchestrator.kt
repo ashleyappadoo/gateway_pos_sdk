@@ -3,6 +3,7 @@ package com.smileandpay.gateway.nepting
 import android.content.Context
 import com.nepting.common.client.model.TransactionRequest
 import com.nepting.common.client.model.TransactionResponse
+import com.nepting.softpos.client.SoftPosClient
 import com.nepting.softpos.client.SoftPosHelper
 import com.nepting.softpos.client.UIRequestCallback
 import com.smileandpay.gateway.auth.CredentialsManager
