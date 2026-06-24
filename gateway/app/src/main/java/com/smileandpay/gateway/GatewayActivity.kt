@@ -34,14 +34,12 @@ class GatewayActivity : ComponentActivity() {
         val action = intent?.action
         val paymentRequest = IntentPaymentHandler.parseIncomingIntent(intent ?: Intent())
 
-        if (action == IntentPaymentHandler.ACTION_CONFIG) {
+        // Lancé depuis le launcher ou via ACTION_CONFIG → écran de configuration
+        if (action == android.content.Intent.ACTION_MAIN ||
+            action == IntentPaymentHandler.ACTION_CONFIG ||
+            paymentRequest == null
+        ) {
             showConfigScreen()
-            return
-        }
-
-        if (paymentRequest == null) {
-            setResult(Activity.RESULT_CANCELED)
-            finish()
             return
         }
 
