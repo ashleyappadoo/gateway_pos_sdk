@@ -3,6 +3,14 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!-- Requis Android 11+ pour détecter la Gateway installée -->
+    <queries>
+        <package android:name="com.smileandpay.gateway" />
+        <intent>
+            <action android:name="com.smileandpay.gateway.ACTION_PAYMENT" />
+        </intent>
+    </queries>
+
     <application
         android:allowBackup="true"
         android:label="@string/app_name"

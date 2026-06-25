@@ -86,12 +86,21 @@ class GatewayActivity : ComponentActivity() {
         setContent {
             MaterialTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    ConfigScreen(
-                        onSave = { login, password, clientId ->
-                            viewModel.saveCredentials(login, password, clientId)
-                            finish()
-                        }
-                    )
+                    val saved = androidx.compose.runtime.remember {
+                        androidx.compose.runtime.mutableStateOf(viewModel.hasCredentials())
+                    }
+                    if (saved.value) {
+                        ConfigSuccessScreen(
+                            onReconfigure = { saved.value = false }
+                        )
+                    } else {
+                        ConfigScreen(
+                            onSave = { login, password, clientId ->
+                                viewModel.saveCredentials(login, password, clientId)
+                                saved.value = true
+                            }
+                        )
+                    }
                 }
             }
         }
