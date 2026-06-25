@@ -17,6 +17,7 @@ import com.smileandpay.gateway.intent.IntentPaymentHandler
 import com.smileandpay.gateway.model.PaymentResult
 import com.smileandpay.gateway.nepting.OrchestratorState
 import com.smileandpay.gateway.ui.ConfigScreen
+import com.smileandpay.gateway.ui.ConfigSuccessScreen
 import com.smileandpay.gateway.ui.PaymentScreen
 import com.smileandpay.gateway.ui.PinEntryView
 import com.smileandpay.gateway.viewmodel.GatewayViewModel
